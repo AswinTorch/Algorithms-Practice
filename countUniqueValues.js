@@ -4,22 +4,17 @@
 // Return: INTEGER
 
 function countUniqueValues(numbers) {
-    // Variables to keep track of indeces
+    // Variable to keep track of first index
     let i = 0;
-    let j = 1;
 
     // Returns 0 if numbers array has no values or doesn't exist
-    if (numbers.length === 0 || !numbers) {
-        return 0;
-    }
+    if (numbers.length === 0 || !numbers) return 0;
 
     // Using pointers, we loop through until j reaches the end of the array. If the values of both positions are the same,
     // then j goes to the next index and compares again. If the values of both positions are different, then i goes to the next index
     // and changes the value at that position to the value of j's position. Then j moves to the next index and it continues.
-    while (j < numbers.length) {
-        if (numbers[i] === numbers[j]) {
-            j++;
-        } else {
+    for (let j = 1; j < numbers.length; j++) {
+        if (numbers[i] !== numbers[j]) {
             i++;
             numbers[i] = numbers[j];
         }
